@@ -1,0 +1,94 @@
+<%- include('../include/header') %>
+<a href="/dashboard">Back to Dashboard</a>
+
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/userlist"><i class="fas fa-angle-double-left"></i> All Users</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update User</h2>
+            <span class="text-light">Use the below form to Update an account</span>
+        </div>
+
+        <!-- add user form -->
+         <!-- form handling -->
+
+
+
+
+       
+    </div>
+</main>
+<!-- /Main Site -->
+<form action="/update-user" method="POST">
+    <input type="hidden" name="_method" name="id" value="<%= user.id %>">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input
+        type="fname"
+        id="fname"
+        name="fname"
+        class="form-control"
+        placeholder="Enter Name"
+        value="<%= user.fname %>"
+ 
+      />
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input
+        type="lname"
+        id="lname"
+        name="lname"
+        class="form-control"
+        placeholder="Enter Name"
+        value="<%= user.lname %>"
+   
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        placeholder="Enter Email"
+        value="<%= user.email %>"
+
+      />
+    </div>
+    <div class="row">
+      <div class="input-field">
+          <select name="role" id="role">
+          <option value="user" <%= user.role == 'user' ? 'selected' : '' %> >User</option>
+          <option value="worker" <%= user.role == 'worker' ? 'selected' : '' %>>Worker</option>
+          <option value="moderator" <%= user.role == 'moderator' ? 'selected' : '' %> >Moderator</option>
+          <option value="admin" <%= user.role == 'admin' ? 'selected' : '' %> >Admin</option>
+
+          
+          </select>
+          <label for="role">Role</label>
+      </div>
+  </div>
+
+
+  
+
+    
+    <button type="submit" class="btn btn-primary btn-block">
+      Update
+    </button>
+    <a href="/userList" class="btn btn-light">Cancel</a>
+  </form>
+  
+
+
+
+
+  <%- include('../include/footer') %>

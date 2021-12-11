@@ -1,0 +1,25 @@
+<%- include('../include/header') %>
+<h1 class="mt-4">Admin Dashboard</h1>
+    
+<p>You are  <%= user.role %></p>
+
+
+    <p class="lead mb-3">Hi  <%= user.fname + " " + user.lname %></p>
+ 
+   
+    <% if(user.googleId) { %>
+        <p class="lead mb-3">Hello  <%= user.displayName %> You are logged in with your google account </p>
+    <% } %>
+
+
+
+<a href="/userlist" class="btn btn-secondary">Users List</a>
+<a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+<a href="/imgs/upload" class="btn btn-secondary">Upload Images</a>
+<a href="/imgs/imagelist" class="btn btn-secondary">Image List</a>
+<a href="/posts/allposts" class="btn btn-secondary">Post List</a>
+<a href="/markets/home" class="btn btn-secondary">Market</a>
+<a href="/posts/blogposts" class="btn btn-secondary">Blog</a>
+<%- include('../include/footer') %>
+
+

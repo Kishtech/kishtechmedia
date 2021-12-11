@@ -1,0 +1,21 @@
+<%- include('../include/header') %>
+<a href="/userlist">Back to Users List</a>
+<% if(user.role==="user"){ %>
+    <% if(user.file){ %>
+
+        <img src="/<%= user.file %>" alt="" width="900">
+
+        <a href="/update/<%= user._id%>" class="btn border-shadow update">Update User According to CV
+                                        
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+    
+      <% } %>  
+   
+
+  <% } else{ %>  
+    <p>You have no more requests</p>
+ <% } %>
+  
+ <%- include('../include/footer') %>
+  

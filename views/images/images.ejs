@@ -1,0 +1,50 @@
+
+<%- include('../include/header') %>
+<h1>Images</h1>
+
+
+
+<div class="row">
+    <%imgs.forEach(img => {%>
+
+        
+       
+    <div class="col s12 m4">
+        <div class="card">
+
+            <div class="card-image">
+                <h5><%= img.desc %></h5>
+                
+            </div>
+            <div class="card-content center-align">
+           
+          
+            <br>
+            <div class="chip">
+                <img src="/<%= img.img %>" alt="image" width= "100%">
+               
+            </div>
+            <div class="cart-action center-align">
+                <a href="/imgs/<%= img._id %>"class="btn grey">Read More</a>
+            </div>
+           
+            <a href="/imgs/users/<%= img.user._id %>"> uploaded by <%= img.user.fname %>  <%= img.user.lname %></a>
+        </div>
+  
+        </div>
+    </div>
+
+
+
+   
+   
+    <%})%>
+
+
+</div>
+
+    
+    </div>
+
+
+<%- include('../include/footer') %>

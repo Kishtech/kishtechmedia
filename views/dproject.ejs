@@ -1,0 +1,67 @@
+<%- include('include/header') %>
+
+
+    <p class="lead mb-3">Hi  <%= user.fname + " " + user.lname %></p>
+   
+    
+<p>You are  <%= user.role %></p>
+<p>Take project and start earning money</p>
+
+
+      <% if (user.role==='user') { %>  
+        <% if (!user.file) { %>
+          <p> upload your resume</p>
+            <main class="admin">
+                <div class="admin__upload-file">
+                  <form action="/uploadFile/<%= user._id%>" enctype="multipart/form-data" method="post">
+                    <input type="file" class="admin__input" id="file" name="file" />
+                    <input class="admin__submit" type="submit" />
+                  </form>
+                </div>
+              </main>
+
+      <% } else { %>
+        <P>Your request is pending...</P>
+       
+          <h1>You have submitted file</h1>
+          
+          <img src="/<%= user.file %>" alt="" width="250">
+          <p>Update file??</p>
+          <form action="/uploadFile/<%= user._id%>" enctype="multipart/form-data" method="post">
+            <input type="file" class="admin__input" id="file" name="file" />
+            <input class="admin__submit" type="submit" />
+          </form>
+
+
+
+        
+           
+        
+<p>Waiting for approval</p>
+
+      <% } %>
+      
+
+    <% } %>
+
+
+
+<% if (user.role==='worker') { %>
+
+ 
+        <p class="lead mb-3">Hi  <%= user.fname + " " + user.lname %>  You are ready to work</p>
+
+
+    <% } %>
+    
+<p>You are  <%= user.role %></p>
+
+
+
+<a href="/dashboard">Back to Dashboard</a>
+
+
+
+
+
+<%- include('include/footer') %>

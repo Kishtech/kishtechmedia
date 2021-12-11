@@ -1,0 +1,92 @@
+
+<%- include('../include/header') %>
+
+
+          
+                <a href="./add-user" class="border-shadow">
+                    <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+                </a>
+            
+            
+
+                <div style="overflow-x:auto;">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Action</th>
+
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                <%userList.forEach(user => {%>
+                    <tr>
+                        <th scope="row">             
+                                      <% if(user.googleId){ %>
+                            <img src="<%= user.image %>" alt="" width="60">
+                        
+                          <% } else{ %>  
+                            <img src="/<%= user.image %>" alt="" width="80">
+                         <% } %></th>
+                        <td>
+                            <%= user.fname %></td>
+                                <td> 
+                                    <%= user.lname %></td>
+                                   
+                                        <td>
+                                            <%= user.email %></td>
+                                            </td>
+                                               
+                       
+                        <td><%= user.role %></td>
+
+                        <td>
+                            <% if(user.role==="user"){ %>
+                                <% if(user.file){ %>
+                                  <p>You have a new request</p>
+                                  <a href="/requests/<%= user._id%>">View request</a>
+                                  
+                                
+                                  <% } %>  
+                               
+                            
+                              <% } %>  
+                            
+                              
+                        
+                        
+                        
+                        
+                        </td>
+                        <td>
+                            <a href="/update" class="btn border-shadow update">
+                                
+                                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                            </a>
+                            <a href="/delete-user/<%= user._id%>" class="btn border-shadow delete" data-id=<%= user._id%> >
+                                <span class="text-gradient"><i class="fas fa-times"></i></span>
+                            </a>
+                        </td>
+
+                    </tr>
+                <%})%>
+                </tbody>
+              </table>
+            
+            
+
+                </div>
+
+        
+        <form action="/export/csv" mehotd="GET">
+            <button id="export-csv">Export CSV</button>
+        </form>
+   
+
+<%- include('../include/footer') %>

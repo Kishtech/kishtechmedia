@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>KishTech </title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> old one-->
+     <link rel="stylesheet" href="../css/blog.css">
+     <style type="text/css">
+     </style>
+   </head>
+    
+
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+        <div class="logo_name">KishTech</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/dashboard">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="/forum">
+         <i class='bx bx-id-card' ></i>
+         <span class="links_name">Forum</span>
+       </a>
+       <span class="tooltip">Forum</span>
+     </li>
+     <li>
+       <a href="/dproject">
+         <i class='bx bx-folder-open' ></i>
+         <span class="links_name">Start Task</span>
+       </a>
+       <span class="tooltip">Start Task</span>
+     </li>
+     <li>
+       <a href="/itSupport">
+         <i class='bx bx-support' ></i>
+         <span class="links_name">IT Support</span>
+       </a>
+       <span class="tooltip">IT Support</span>
+     </li>
+     <li>
+       <a href="/cproject">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Submit Tasks</span>
+       </a>
+       <span class="tooltip">Submit Tasks</span>
+     </li>
+     <li>
+       <a href="/chats">
+         <i class='bx bx-chat' ></i>
+         <span class="links_name">Chats</span>
+       </a>
+       <span class="tooltip">Chats</span>
+     </li>
+     <% if(!user){ %>
+     
+      <li><a href="/users/users/login">
+        <i class='bx bx-log-in' ></i>
+        <span class="links_name">LogIn</span>
+      </a>
+      <span class="tooltip">LogIn</span>
+    </li>
+  
+    <% } else{ %>  
+      <li><a href="/users/users/logout">
+        <i class='bx bx-log-out' ></i>
+        <span class="links_name">LogOut</span>
+      </a>
+      <span class="tooltip">LogOut</span>
+    </li>
+   <% } %>
+   <% if(!user){ %>
+    
+
+  <% } else{ %>  
+    <li>
+      <a href="/profile">
+        <i class='bx bx-user' ></i>
+        <span class="links_name">View profile</span>
+      </a>
+      <span class="tooltip">View profile</span>
+    </li>
+ <% } %>
+     
+
+  
+     <% if(user){ %>
+      
+     
+
+     <% if(user.role === 'admin'){ %>
+        <li class="profile">
+            <div class="profile-details">
+              <a href="/admin"> 
+              <% if(user.displayName){ %>
+                <img src="<%= user.image %>" alt="" >
+            
+              <% } else{ %>  
+                <img src="./<%= user.image %>" alt="">
+             <% } %>
+              <div class="name_job">
+               
+                <div class="name"><%= user.fname %></div>
+                <div class="job">Web developer</div>
+            
+              </div>
+            </a>
+            </div>
+   
+        </li>
+    
+      <% } else{ %>  
+        <li class="profile">
+          
+            <div class="profile-details">
+              <a href="/profile"> 
+                <% if(user.image){ %>
+                  <img src="<%= user.image %>" alt="" >
+              
+                <% } else{ %>  
+                  <img src="./<%= user.image %>" alt="">
+               <% } %>
+              
+              <div class="name_job">
+                
+                <div class="name"><%= user.fname %></div>              
+              </div>
+              </a>
+            </div>
+   
+        </li>
+     <% } %>
+    
+  
+    
+  
+     <% } else{ %>  
+      <p>You are not logged in</p>
+    <% } %>
+
+
+
+    </ul>
+  </div>
+
+  <section class="home-section" >

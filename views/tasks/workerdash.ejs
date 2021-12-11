@@ -1,0 +1,15 @@
+
+<%- include('../include/header') %>
+<% if (user.fname) { %>
+    <p class="lead mb-3">Hi  <%= user.fname + " " + user.lname %></p>
+    <%} else { %>
+    <p class="lead mb-3">Hello  <%= user.displayName %> </p>
+    <% } %>
+ 
+    
+    
+<p>You are  <%= user.role %></p>
+<p>Upload Success</p>
+<a href="/users/dproject">Back to start task page</a>
+
+<%- include('../include/footer') %>

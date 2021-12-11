@@ -1,0 +1,66 @@
+
+<%- include('../include/header') %>
+
+
+          
+<a href="/imgs/upload" class="border-shadow">
+    <span class="text-gradient">New Image <i class="fas fa-user"></i></span>
+</a>
+
+
+
+<div style="overflow-x:auto;">
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">Uploaded by</th>
+    <th scope="col">Title</th>
+    <th scope="col">Desc</th>
+    <th scope="col">Image</th>
+    <th scope="col">Status</th>
+    <th scope="col">Action</th>
+
+    
+  </tr>
+</thead>
+<tbody>
+<%imageList.forEach(img => {%>
+    <tr>
+        <th scope="row">             
+            <%= img.user.fname %> <%= img.user.lname %>    
+        </th>
+        <td>
+            <%= img.title %></td>
+                <td> 
+                    <%= img.desc %></td>
+                   
+                        <td>
+                            <img src="/<%= img.img %>" alt="image" width= "80"></td>
+                            
+                            
+                            <td>
+                                <%= img.type %></td>
+                                </td>
+       
+        <td>
+            <a href="/update-img" class="btn border-shadow update">
+                
+                <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+            </a>
+            <a href="/delete-img/<%= img._id%>" class="btn border-shadow delete" data-id=<%= img._id%> >
+                <span class="text-gradient"><i class="fas fa-times"></i></span>
+            </a>
+        </td>
+
+    </tr>
+<%})%>
+</tbody>
+</table>
+
+
+
+</div>
+
+
+
+<%- include('../include/footer') %>

@@ -1,0 +1,73 @@
+<%- include('../include/header') %>
+<h6>Dashboard</h6>
+<h3>Welcome </h3>
+<p>Your Forum<p>
+    <%= user.fname %>  
+
+
+        <% if(posts){ %>
+     
+        <table class ="table">
+            <thead>
+                <tr> 
+                    <th scope="col">Title</th>
+                    <th scope="col">Status</th>
+  
+                    <th scope="col">Created By</th>
+                    <th scope="col">Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% posts.forEach(post => {%>
+                   
+                <tr> 
+                    
+                       
+              
+                    <td><a href="/posts/<%= post._id %>"><%= post.title %></a></td>
+                    
+                    <td><span class="dash-status"><%= post.status %></span></td>
+
+                  
+                   
+                    
+                    <td><span class="dash-status"><%= user.fname %></span></td>
+
+                    <td>
+                        <a href="/edit/<%= post._id %>" class="btn btn-float">
+                        <i class="fas fa-edit"></i>
+                        </a>
+     
+                        <form action="/posts/delete/<%= post._id %>" method="POST" id="delete-form">
+                     <input type="hidden" name="_method" value="DELETE">
+                     <button type="submit" class="btn red">
+                         <i class="fas fa-trash"></i>
+                     </button>
+                        </form>
+     
+     
+                    </td>
+      
+                    
+                   
+                </tr>
+               
+                <%})%>
+            </tbody>
+        </table>
+       
+        <% } else{ %>  
+            <p>You have not created any stories yet</p>
+         <% } %>
+     
+
+      
+<a href="/posts/add" class="btn btn-secondary">Add Post</a>
+<a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+<a href="posts/all" class="btn btn-secondary">Global Forum</a>
+<a href="/imgs/images" class="btn btn-secondary">View Images</a>
+<a href="/markets/products" class="btn btn-secondary">Market</a>
+
+
+<%- include('../include/footer') %>

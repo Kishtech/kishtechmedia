@@ -1,0 +1,32 @@
+<%- include('../include/header') %>
+   
+<a href="/markets/products" class="btn btn-secondary">Add more?</a>
+        <main>
+            <% if (products.length > 0) { %>
+                <ul class="cart__item-list">
+                    <% products.forEach(p => { %>
+                        <li class="cart__item">
+                            <h1><%= p.productId.title %></h1>
+                            <img src="/<%= p.productId.pimage %>" width="100" alt="">
+                            <h2>Quantity: <%= p.quantity %></h2>
+                            <form action="/markets/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                                <input type="hidden" >
+                                <button class="btn danger" type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+                <hr>
+                <div class="centered">
+                    <!-- <form action="/create-order" method="POST">
+                        <input type="hidden" ">
+                        <button type="submit" class="btn">Order Now!</button>
+                    </form> -->
+                    <a class="btn" href="/markets/checkout">Order Now</a>
+                </div>
+            <% } else { %>
+                <h1> No Products in Cart </h1>
+            <% } %>
+        </main>
+        <%- include('../include/footer') %>

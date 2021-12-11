@@ -1,0 +1,61 @@
+
+<%- include('include/header') %>
+
+
+ <form method="post" action="/update-profile/<%= user._id%>"  enctype="multipart/form-data" id="update-profile">
+    <div class="new_user">
+        <div class="form-group">
+            <label for="fname" class="text-light">First Name</label>
+            <input type="hidden" name="_method" value="PUT">
+            <input type="text" name="fname" id="fname" value="<%= user.fname %>" placeholder="Kish">
+        </div>
+        <div class="form-group">
+            <label for="lname" class="text-light">Last Name</label>
+            <input type="hidden" name="_method" value="PUT">
+            <input type="text" name="lname" id="lname" value="<%= user.lname %>" placeholder="Kish">
+        </div>
+        <div class="form-group">
+            <label for="image">Upload your image</label>
+            <input type="hidden" name="_method" value="PUT">
+            <input type="file" id="image" 
+                   name="image" value=" " >
+        </div>
+
+        
+       
+        <% if(user.role === 'admin' ) { %>
+            <div class="row">
+                <div class="input-field">
+                    <select name="role" id="role">
+                    <option value="user" <%= user.role == 'user' ? 'checked' : '' %> selected>User</option>
+                    <option value="worker" <%= user.role == 'worker' ? 'checked' : '' %> selected>Worker</option>
+                    <option value="moderator" <%= user.role == 'moderator' ? 'checked' : '' %> selected>Moderator</option>
+                    <option value="admin" <%= user.role == 'admin' ? 'checked' : '' %> selected>Admin</option>
+    
+                    
+                    </select>
+                    <label for="role">Role</label>
+                </div>
+            </div>
+        <% } %>
+        
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+
+       
+
+
+
+
+<%- include('include/footer') %>
+
+
+
+
+  
+

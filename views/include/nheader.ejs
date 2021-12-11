@@ -1,0 +1,41 @@
+
+
+    <head>
+        <title>Kish Tech</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> old one-->
+        <link rel="stylesheet" href="../css/blog.css">
+        <style type="text/css">
+        </style>
+    </head>
+
+
+       
+        <header class="main_header">
+            <div class="d-flex justify-content-center align-items-center flex-column py-5">
+                <h1 class="text-uppercase main_heading">Kish Tech</h1>
+                <p class="main_heading__para">Welcome to my <span class="text-capitalize bg-dark text-white py-2 px-3"> world of blog</span> </p>
+            </div>
+            <!-- //the main image -->
+            <div class="main_header__div d-flex align-items-start
+        justify-content-center  flex-column shadow pl-5">
+                <p>Kish Tech</p>
+                <!-- <h2 class="text-uppercase">the Progammer guy</h2> -->
+               
+                <h2 class="animateWord">
+                   
+                  <% if(!user){ %>
+                    <a href="/welcome"><button >Login/Register</button></a>
+                
+                  <% } else{ %>  
+                    <p>hello <%= user.fname %></p>
+                    <a href="/users/users/logout"><button >Logout</button></a>
+                 <% } %>
+                </h2>
+                
+            </div>
+        </header>

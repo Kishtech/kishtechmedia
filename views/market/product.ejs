@@ -1,0 +1,13 @@
+<%- include('../include/header') %>
+    <main class="centered">
+        <h1> <%= product.title %> </h1>
+        <hr>
+        <div class="image">
+            <img src="/<%= product.pimage %>" alt="<%= product.title %>">
+        </div>
+        <h2><%= product.price %></h2>
+        <p> <%= product.description %> </p>
+        <a href="/markets/edit/<%= product._id %>" class="btn btn-float">Edit</a>
+        <%- include('../include/add-to-cart', {product: product}) %>
+    </main>
+    <%- include('../include/footer') %>

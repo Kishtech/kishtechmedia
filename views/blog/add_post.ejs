@@ -1,0 +1,43 @@
+<%- include('../include/header') %>
+
+<p class="lead mb-3">Hi <%= user.fname %></p>
+<p>This is forum</p>
+
+<h3>Add Story</h3>
+<div class="row">
+    <form action="/posts/add" method="POST"   class="col s12">
+    <div class="row">
+        <div class="input-field">
+            <input type="text" id="title" name="title">
+            <label for="title">Title</label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field">
+        <select name="status" id="status">
+        <option value="public" selected>Public</option>
+        <option value="private" selected>private</option>
+        
+        </select>
+        <label for="status">Status</label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field">
+        <h5>Tell Us Your Story</h5>
+        <textarea name="body" id="body" ></textarea>
+    </div>
+</div>
+
+
+<div class="row">
+    <input type="submit" value="Save" class="btn">
+    <a href="/dashboard" class="btn orange">Cancel</a>
+    
+    </form>
+</div>
+
+<%- include('../include/footer') %>

@@ -1,0 +1,30 @@
+
+
+
+<%- include('../include/header') %>
+   
+        <h3><%= post.title %>
+          
+        </h3>
+       
+              
+                <%= post.body %>
+       
+    
+
+   
+            <div class="card-content">
+                <span class="card-title"><%= post.user.fname %>   </span>
+               
+            </div>
+            <div class="chip">
+                <img src="/<%= post.user.image %>" alt="image"  width="250">
+             
+            </div>
+           
+            <div class="card-action">
+                <a href="/posts/users/<%= post.user._id %>">More From <%= post.user.fname %></a>
+            </div>
+
+          
+            <%- include('../include/footer') %>

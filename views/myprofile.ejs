@@ -1,0 +1,16 @@
+
+
+<%- include('include/header') %>
+<h2>User Profile Card</h2>
+<h1><%= user.fname %></h1>
+<% if(user.displayName){ %>
+  <img src="<%= user.image %>" alt=""  class="responsive">
+
+<% } else{ %>  
+  <img src="./<%= user.image %>" alt="" class="responsive">
+<% } %>
+        <a href="update">
+        <button>Update</button>
+        </a>
+
+  <%- include('include/footer') %>

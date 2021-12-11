@@ -1,0 +1,38 @@
+<%- include('../include/header') %>
+<h3>Edit Story</h3>
+<div class="row">
+    <form action="/posts/<%= post._id %>" method="POST" id="edit" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="<%= post.title %>">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    <%= post.status %>
+                    <option value="public"  <%= post.status == 'public' ? 'selected' : '' %>>Public</option>
+                    <option value="private"  <%= post.status == 'private' ? 'selected' : '' %> >Private</option>
+                   
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Write your post</h5>
+                <textarea id="body" name="body"><%= post.body %></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../include/footer') %>
